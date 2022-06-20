@@ -36,8 +36,8 @@ return [
     'email'                     => 'البريد الإلكتروني',
     'img'                       => 'الصورة',
     'created_at'                => 'تم الإنشاء',
-    'action'                    => 'عمل',
-    'password'                  => 'كلمة السر',
+    'action'                    => 'إجراء',
+    'password'                  => 'كلمة المرور',
 
     'location'                  => 'الموقع',
 
@@ -50,7 +50,7 @@ return [
     'title'                     => 'العنوان',
     'rate'                      => 'التقييم',
     'start_date'                => 'تاريخ البداية',
-    'end_date'                  => 'تاريخ النهاية',
+    'end_date'                  => 'تاريخ الإنتهاء',
     'status'                    => 'الحالة',
     'desc'                      => 'الوصف',
     'message'                   => 'الرسالة',
@@ -59,7 +59,7 @@ return [
     'type'                      => 'النوع',
     'read_more'                 => 'إقرأ المزيد',
 
-    'price'                     => 'السعر',
+    'price'                     => 'التكلفة',
     'change_status'             => 'تغيير الحالة',
 
     'edit_task_status'          => 'تغيير حالة المهمة',
@@ -74,7 +74,7 @@ return [
     'import_users'              => 'إستيراد مستخدمين',
     'import_tasks'              => 'إستيراد مهمات',
     
-    'edit_profile'              => 'تعديل البروفايل',
+    'edit_profile'              => 'تعديل الحساب',
 
     'signout'                   => 'تسجيل الخروج',
 

@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Company\RequirementController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\NewsTypesController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
@@ -76,12 +78,10 @@ Route::group(
             Route::get('/requirement' , [RequirementController::class , 'requirements'])->name('admin.requirement.requirements');
             Route::put('/requirment/{id}' , [RequirementController::class , 'changStatus'])->name('requirment.changStatus');
 
+                        
+            Route::resource('news' , NewsController::class);
 
-
-
-
-
-
+            Route::resource('news_types' , NewsTypesController::class);
 
         });
 

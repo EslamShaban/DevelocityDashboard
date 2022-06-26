@@ -73,10 +73,16 @@ return [
 
     'import_users'              => 'إستيراد مستخدمين',
     'import_tasks'              => 'إستيراد مهمات',
+
+    'news'                      => 'الأخبار',
+    'add_news'                  => 'أضف خبر',
+    'news_types'                => 'نوع الخبر',
+    'latest_news'               => 'أخر الأخبار',
     
     'edit_profile'              => 'تعديل الحساب',
 
     'signout'                   => 'تسجيل الخروج',
+
 
     'submit'                    => 'حفظ',
 

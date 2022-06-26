@@ -75,6 +75,11 @@ return [
     'import_users'              => 'Import Users',
     'import_tasks'              => 'Import Tasks', 
 
+    'news'                      => 'News',
+    'add_news'                  => 'Add News',
+    'news_types'                => 'News Type',
+    'latest_news'               => 'Latest News',
+
     'edit_profile'              => 'Edit Profile',
 
     'signout'                   => 'Sign Out',

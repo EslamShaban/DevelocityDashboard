@@ -14,6 +14,55 @@
 
   @if(auth('admin-company')->check())
 
+    @if(isset($latest_new) && $latest_new != '')
+        <section class="latest_news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="sec_title">
+                            <h2>أخر الأخبار
+                                <a href="{{ route('users.news.index')}}" style="float: left;">المزيد من الاخبار</a>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <div class="col-12">
+                            <div class="row news-data">
+                                <div class="col-md-6 news_image">
+                                    <div class="image">
+                                        <img src="{{ asset('Attachments/news/'. $latest_new->img) }}" width="100%" height="100%">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 grid_news_content">
+                                    <div class="news_content">
+                                        <div class="news_title">
+                                            <a href="{{ route('users.news.show', $latest_new->id) }}">
+                                                <h2>
+                                                    {{ $latest_new->title }}
+                                                    <p style="float: left; color:#8b7d7d;font-size:14px; margin:10px">{{ $latest_new->created_at->diffForHumans()}}</p>
+
+                                                </h2>
+                                            </a>
+                                        </div>
+                                        <div class="news_desc">
+                                            <p>{!! Str::limit(strip_tags($latest_new->desc), $limit = 350, $end = '...') !!}</p>
+                                            <a href="{{ route('users.news.show', $latest_new->id) }}" class="read-more-button" style="float: left;margin-left: 10px;color: #e95a5a;"><i class="fa fa-arrow-circle-left" style="color: #e95a5a; margin-left:5px"></i>إقرا المزيد</a>
+                                        </div>
+                                                                            
+                                        <span>{{ $latest_new->type->title }}</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    @endif
+
   <div class="card-body">
          {{-- tasks --}}
        <div class="row g-3 g-xl-3">

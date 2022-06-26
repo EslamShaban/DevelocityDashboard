@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use App\Models\Task;
 use App\Models\Requirement;
+use App\Models\News;
 
 class DashboarController extends Controller
 {
@@ -13,6 +12,9 @@ class DashboarController extends Controller
          if(auth('admin-company')->check()){
 
             $user_id = auth('admin-company')->user()->id;
+
+
+            $latest_new = News::where('company_id', auth('admin-company')->user()->company_id)->latest()->first();
 
             $tasks = Task::whereHas('users', function($q) use ($user_id){
                 return $q->where('user_id', $user_id);
@@ -33,7 +35,8 @@ class DashboarController extends Controller
 
 
 
-           return view('backend.dashboard' , compact('tasks' , 'task_waiting' , 'tasks_complete' ,
+
+           return view('backend.dashboard' , compact('latest_new','tasks' , 'task_waiting' , 'tasks_complete' ,
               'requirement_waiting' , 'requirement_rejected'  , 'requirements_approve'
 
            ));

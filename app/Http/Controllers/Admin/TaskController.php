@@ -57,8 +57,6 @@ class TaskController extends Controller
         $task = Task::create([
             'title'=>$request->title,
             'company_id' => $request->company_id ,
-            //'job_id' => $request->job_id ,
-            //'user_id' => $request->user_id ,
             'desc' => $request->desc ,
             'img' => $file_name,
             'status' => $request->status ,
@@ -145,16 +143,12 @@ class TaskController extends Controller
 
     public function destroy($id)
     {
-        $old_file_name = '';
 
         $task = Task::where('id' , $id)->first();
-        $task->id = $id;
 
-        $old_file_name = $task->img;
+        if (!empty($task->img)) {
 
-        if (!empty($task->desc)) {
-
-            Storage::disk('tasks')->delete('/'.$old_file_name);
+            Storage::disk('tasks')->delete('/'.$task->img);
         }
         Task::destroy($id);
         toastr()->success('Task has been deleted successfully!');

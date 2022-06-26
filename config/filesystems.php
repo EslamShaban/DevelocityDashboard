@@ -50,8 +50,10 @@ return [
              'root'   => public_path() . '\Attachments\tasks',
         ],
 
-
-
+       'news' => [
+            'driver' => 'local',
+             'root'   => public_path() . '\Attachments\news',
+        ],
 
 
 

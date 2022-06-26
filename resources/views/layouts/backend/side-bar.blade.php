@@ -507,19 +507,82 @@
 
                     </div>
 
+                    {{-- news --}}
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->
+                                <span class="svg-icon svg-icon-2">
+
+                                    <i class="fas fa-calendar"></i>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="menu-title"> {{ __('admin.news') }}</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <div class="menu-sub menu-sub-accordion menu-active-bg">
 
 
+                                <div class="menu-item">
 
 
+                                    <a class="menu-link " href="{{ route('news.create') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ __('admin.add_news')}}</span>
+                                    </a>
+
+                                    <a class="menu-link active" href="{{ route('news.index') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ __('admin.news') }}</span>
+                                    </a>
+                                </div>
+
+                        </div>
+
+                    </div>
+                    {{-- news types --}}
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->
+                                <span class="svg-icon svg-icon-2">
+
+                                    <i class="fas fa-calendar"></i>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="menu-title"> {{ __('admin.news_types') }}</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <div class="menu-sub menu-sub-accordion menu-active-bg">
 
 
+                                <div class="menu-item">
 
 
+                                    <a class="menu-link " href="{{ route('news_types.create') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ __('admin.add_news_type')}}</span>
+                                    </a>
 
+                                    <a class="menu-link active" href="{{ route('news_types.index') }}">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">{{ __('admin.news_types') }}</span>
+                                    </a>
+                                </div>
 
+                        </div>
 
-
-
+                    </div>
             @endif
 
 

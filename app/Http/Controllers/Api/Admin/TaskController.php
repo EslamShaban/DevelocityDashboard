@@ -49,7 +49,7 @@ class TaskController extends Controller
         $task->users()->sync($request->user_ids); 
 
         if($task){
-          return $this->apiResponse(new TaskResource($task) , 201 , 'task creates sucessfully');
+          return $this->apiResponse(new TaskResource($task) , 200 , 'task creates sucessfully');
         }else{
             return $this->apiResponse(null , 404 , 'something went wrong');
         }
@@ -83,7 +83,7 @@ class TaskController extends Controller
             $task->users()->sync($request->user_ids);
 
 
-            return $this->apiResponse(new TaskResource($task) , 201 , 'task update sucessfully');
+            return $this->apiResponse(new TaskResource($task) , 200 , 'task update sucessfully');
 
         }else{
             return $this->apiResponse(null , 404 , 'task not found');
@@ -103,7 +103,7 @@ class TaskController extends Controller
             }
 
             Task::destroy($id);
-            return $this->apiResponse(true , 201 , 'task deleted sucessfully');
+            return $this->apiResponse(true , 200 , 'task deleted sucessfully');
         }else{
             return $this->apiResponse(null , 404 , 'task not found');
         }

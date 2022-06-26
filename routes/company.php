@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboarController;
 use App\Http\Controllers\Company\ComplaintController;
 use App\Http\Controllers\Company\RequirementController;
 use App\Http\Controllers\Company\UserController;
+use App\Http\Controllers\Company\NewsController;
 use App\Http\Controllers\Admin\NotificationController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -25,20 +26,26 @@ Route::group(
         Route::get('/dashboard-company' , [DashboarController::class , 'index'])->middleware(['auth:admin-company'])->name('dashboard-company');
         Route::group(['prefix' => 'admin-company'  , 'middleware' => 'auth:admin-company'] , function(){
 
-        //tasks
-        Route::get('/user-tasks/{task_id?}' , [HomeController::class , 'index'])->name('tasks.users');
-        Route::get('/user-tasks-edit/{id}' , [HomeController::class , 'editTask'])->name('tasks.users.edit');
-        Route::put('/user-tasks-update/{id}' , [HomeController::class , 'taskUpdate'])->name('tasks.users.update');
+            //tasks
+            Route::get('/user-tasks/{task_id?}' , [HomeController::class , 'index'])->name('tasks.users');
+            Route::get('/user-tasks-edit/{id}' , [HomeController::class , 'editTask'])->name('tasks.users.edit');
+            Route::put('/user-tasks-update/{id}' , [HomeController::class , 'taskUpdate'])->name('tasks.users.update');
 
-        // rates
-        Route::get('/user-rates' , [HomeController::class , 'rates'])->name('rates.user');
+            // rates
+            Route::get('/user-rates' , [HomeController::class , 'rates'])->name('rates.user');
 
-        // complaints
-        Route::resource('complaints' , ComplaintController::class);
+            // complaints
+            Route::resource('complaints' , ComplaintController::class);
 
-        // requirements
-        Route::resource('requirements' , RequirementController::class);
+            // requirements
+            Route::resource('requirements' , RequirementController::class);
 
+            //news
+            Route::prefix('news')->name('users.news.')->group(function () {
+                Route::get('/', [NewsController::class,'index'])->name('index');
+                Route::get('/{id}/show', [NewsController::class,'show'])->name('show');
+
+            });
 
         });
 

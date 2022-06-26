@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Admin\TaskController;
 use App\Http\Controllers\Api\Admin\ComplaintController;
 use App\Http\Controllers\Api\Admin\RequirementController;
+use App\Http\Controllers\Api\Admin\NewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
@@ -85,6 +86,14 @@ use Illuminate\Support\Facades\Route;
          Route::group(['prefix' => 'requirements'] , function(){
             Route::get('/{id?}' , [RequirementController::class , 'index']);
             Route::post('/{id}/update-status' , [RequirementController::class , 'update_status']);
+        });
+
+        //news
+         Route::group(['prefix' => 'news'] , function(){
+            Route::get('/{id?}' , [NewsController::class , 'index']);
+            Route::post('/create' , [NewsController::class , 'store']);
+            Route::put('/update/{id}' , [NewsController::class , 'update']);
+            Route::post('/delete/{id}' , [NewsController::class , 'destroy']);
         });
 
         Route::post('admin/logout' , [AdminController::class , 'logout']);
